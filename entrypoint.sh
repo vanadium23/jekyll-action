@@ -180,6 +180,9 @@ touch .nojekyll
 
 echo "Publishing to ${GITHUB_REPOSITORY} on branch ${remote_branch}"
 
+git config http.postBuffer 524288000
+git config https.postBuffer 524288000
+
 if [ -n "$INPUT_COMMIT_AUTHOR" ]; then
   git config user.name "${INPUT_COMMIT_AUTHOR}" && \
   git config user.email "${INPUT_COMMIT_AUTHOR}@users.noreply.github.com" && \
